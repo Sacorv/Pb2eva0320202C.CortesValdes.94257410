@@ -1,7 +1,12 @@
 package ar.edu.unlam.pb220202c.eva03;
 
-public class Automovil {
+public class Automovil extends Vehiculo implements Imultable{
 
+
+	public Automovil(String patente, Integer velocidadActual, Integer limiteVelocidad) {
+		super(patente, velocidadActual, limiteVelocidad);
+	}
+	
 	//Si es necesario Utilice herencia o implemente de Interfaces
 //	Se debe crear contructeres getters y Setters y loos que crean convenientes
 	
@@ -9,7 +14,19 @@ public class Automovil {
 //en caso que supere dicho limite el este sera multado
 
 	
-	
+	public void limiteDeVelocidadestablecido() {
+		this.setLimiteVelocidad(130);
+	}
+
+	@Override
+	public Boolean enInfraccion() {
+		Boolean estaEnInfraccion = false;
+		if(this.getVelocidadActual()>this.getLimiteVelocidad()) {
+			estaEnInfraccion = true;
+		}
+		return estaEnInfraccion;
+	}
    
+	
 	
 }
