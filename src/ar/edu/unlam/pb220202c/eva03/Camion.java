@@ -10,13 +10,14 @@ public class Camion extends Vehiculo implements Imultable{
 	
 	
 	
-	public Camion(String patente, Integer velocidadActual, Integer limiteVelocidad, Integer cantidadDeEjes) {
-		super(patente, velocidadActual, limiteVelocidad);
+	public Camion(String patente, Integer velocidadActual, Integer cantidadDeEjes) {
+		super(patente, velocidadActual);
 		this.cantidadDeEjes = cantidadDeEjes;
+		this.limiteDeVelocidadEstablecido();
 	}
 	
 
-	public void limiteDeVelocidadEstablecido() {//VERRRRRRRRR
+	public void limiteDeVelocidadEstablecido() {
 		this.setLimiteVelocidad(80);
 	}
 	
@@ -29,6 +30,18 @@ public class Camion extends Vehiculo implements Imultable{
 		}
 		return estaEnInfraccion;
 	}
+
+
+	@Override
+	public int compareTo(Vehiculo vehiculo) {
+		return this.getPatente().compareTo(vehiculo.getPatente());
+	}
+
+
+
+
+
+
 
 	
 	

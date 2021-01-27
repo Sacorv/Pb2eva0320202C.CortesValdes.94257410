@@ -18,12 +18,10 @@ public class Autopista {
 	
 	
 	public Boolean registrarTelepase (Integer numeroTelpase, Vehiculo vehiculo) {
-		Boolean registroExitoso = false;
 		
-		if(this.telepase.put(numeroTelpase, vehiculo)!=null) {
-			registroExitoso = true;
-		}
-		return registroExitoso;
+		this.telepase.put(numeroTelpase, vehiculo);
+		
+		return this.telepase.containsKey(numeroTelpase);
 	}
 	
 	
@@ -37,13 +35,14 @@ public class Autopista {
 		}
 		else {
 			this.vehiculosEnCirculacion.add(vehiculo);
+			ingresoExitoso = true;
 		}
 		return ingresoExitoso;
 	}
 	
 	public void salirAutpista (Vehiculo vehiculo) throws VehiculoNotFounException {
 		//lanza Una exception VehiculoNotFounException si no esta en circulacion
-		Boolean estaEnCirculacion = this.telepase.containsValue(vehiculo);
+		Boolean estaEnCirculacion = this.vehiculosEnCirculacion.contains(vehiculo);
 		
 		if(estaEnCirculacion == false) {
 			throw new VehiculoNotFounException("El vehiculo no esta en circulacion");
@@ -68,6 +67,26 @@ public class Autopista {
 	public Integer cantidadDeVehiculosENCirculacion() {
 	
 		return this.vehiculosEnCirculacion.size();
+	}
+
+
+	public HashMap<Integer, Vehiculo> getTelepase() {
+		return telepase;
+	}
+
+
+	public void setTelepase(HashMap<Integer, Vehiculo> telepase) {
+		this.telepase = telepase;
+	}
+
+
+	public HashSet<Vehiculo> getVehiculosEnCirculacion() {
+		return vehiculosEnCirculacion;
+	}
+
+
+	public void setVehiculosEnCirculacion(HashSet<Vehiculo> vehiculosEnCirculacion) {
+		this.vehiculosEnCirculacion = vehiculosEnCirculacion;
 	}
 	
 	

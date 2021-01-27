@@ -1,10 +1,10 @@
 package ar.edu.unlam.pb220202c.eva03;
 
 public class Automovil extends Vehiculo implements Imultable{
-
-
-	public Automovil(String patente, Integer velocidadActual, Integer limiteVelocidad) {
-		super(patente, velocidadActual, limiteVelocidad);
+	
+	public Automovil(String patente, Integer velocidadActual) {
+		super(patente, velocidadActual);
+		this.limiteDeVelocidadestablecido();
 	}
 	
 	//Si es necesario Utilice herencia o implemente de Interfaces
@@ -26,6 +26,15 @@ public class Automovil extends Vehiculo implements Imultable{
 		}
 		return estaEnInfraccion;
 	}
+
+	@Override
+	public int compareTo(Vehiculo vehiculo) {
+		return this.getPatente().compareTo(vehiculo.getPatente());
+	}
+
+
+
+	
    
 	
 	

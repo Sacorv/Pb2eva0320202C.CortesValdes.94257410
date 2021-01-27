@@ -1,6 +1,6 @@
 package ar.edu.unlam.pb220202c.eva03;
 
-public abstract class Vehiculo implements Imultable, Comparable{
+public abstract class Vehiculo implements Imultable, Comparable<Vehiculo>{
 
 	//Se debe crear contructeres getters y Setters y loos que crean convenientes
 	private String Patente;
@@ -8,10 +8,10 @@ public abstract class Vehiculo implements Imultable, Comparable{
 	private Integer limiteVelocidad;
 
 	
-	public Vehiculo(String patente, Integer velocidadActual, Integer limiteVelocidad) {
+	public Vehiculo(String patente, Integer velocidadActual) {
 		this.Patente = patente;
 		this.VelocidadActual = velocidadActual;
-		this.limiteVelocidad = limiteVelocidad;
+		this.limiteVelocidad = 0;
 	}
 
 
@@ -58,9 +58,14 @@ public abstract class Vehiculo implements Imultable, Comparable{
 
 
 
+	
+
+
+
 	@Override
-	public int compareTo(Object o) {
-		return this.Patente.compareTo(Patente);
+	public String toString() {
+		return "Vehiculo [Patente=" + Patente + ", VelocidadActual=" + VelocidadActual + ", limiteVelocidad="
+				+ limiteVelocidad + "]";
 	}
 	
 	
